@@ -10,6 +10,11 @@ class Grokking {
         // 128 -> 64 -> 32 -> 16 -> 8 -> 4 -> 2 = 6
         // 256 = 7
     }
+
+    fun runSs1() {
+        println(selectionSort(arrayListOf(5,3,6,2, 2, 9)))
+    }
+
     fun binarySearch(arr: List<Int>, item: Int): Int? {
         var low = 0 // low and high keep track of which part of list you'll search in.
         var high = arr.size -1
@@ -26,5 +31,30 @@ class Grokking {
             }
         }
         return null // the item doesn't exist.
+    }
+
+    fun findsSmallest(arr: MutableList<Int>): Int { // selection sort
+        var smallest = arr[0]
+        var smallestIndex = 0
+
+        for (i in 1 until arr.size) {
+            if (arr[i] < smallest) {
+                smallest = arr[i]
+                smallestIndex = i
+            }
+        }
+
+        return smallestIndex
+    }
+
+    fun selectionSort(arr: ArrayList<Int>): List<Int> {
+        val newArray = mutableListOf<Int>() //arrayOf(0)
+        val copiedArray = arr.toMutableList()
+
+        for (i in copiedArray.indices) {
+            val smallest = findsSmallest(copiedArray)
+            newArray.add(copiedArray.removeAt(smallest))
+        }
+        return newArray
     }
 }
