@@ -1,6 +1,6 @@
 package id.neotica.stack
 
-import id.neotica.stack.oday.validParentheses
+import id.neotica.prependNewLine
 
 fun stackDemo() {
 /**
@@ -18,6 +18,19 @@ fun stackDemo() {
  * reference: Bro Code "Learn data structure in 10 minutes 📚
  * link: https://www.youtube.com/watch?v=KInG04mAjO0
 **/
-    stackInJava()
-    println("".validParentheses())
+
+    println("Welcome to Stack Demo! Select option!".prependNewLine())
+    println("1. Show Demo")
+    println("2. Play Demo")
+    print("Input: ".prependNewLine())
+    val userInput = readln()
+    when (userInput.toIntOrNull()) {
+        1 -> stackInJavaDemo()
+        2 -> stackInJava()
+        else -> {
+            println("There's no such option.")
+
+            stackDemo()
+        }
+    }
 }

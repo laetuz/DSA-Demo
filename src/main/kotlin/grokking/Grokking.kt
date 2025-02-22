@@ -57,4 +57,34 @@ class Grokking {
         }
         return newArray
     }
+
+    fun factorial(x: Int): Long = if (x == 1) 1 else x * factorial(x -1)
+
+    fun quickSort(array: List<Int>): List<Int> {
+        val test = listOf(1,2,3,4).sortedBy { it == 2 }
+        if (array.size < 2) {
+            return array
+        } else {
+            val pivot = array[0]
+            val less = array.drop(1).filter { it <= pivot }
+            val greater = array.drop(1).filter { it > pivot }
+
+            return quickSort(less) + pivot + quickSort(greater)
+        }
+    }
+
+    fun maps() {
+        val book = mutableMapOf<String, String>()
+
+        book["doofus"] = "hell yeah"
+        book["lotr"] = "Lord of the rings"
+        book.remove("lotr")
+        book.clear()
+        book["lol"] = "Lord or the fireflies"
+
+        println(book["doofus"])
+        println(book)
+    }
+
+
 }

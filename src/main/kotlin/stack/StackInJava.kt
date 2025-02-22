@@ -1,7 +1,68 @@
 package id.neotica.stack
+import id.neotica.mainMenu
+import id.neotica.prependNewLine
 import java.util.*
 
 fun stackInJava() {
+
+    val stack = Stack<String>()
+
+    do {
+        println("Select option".prependNewLine())
+        println("1. Peek Stack")
+        println("2. Push Stack")
+        println("3. Pop Stack ")
+        println("4. Print All Stack")
+        println("5. Search Stack")
+        println("6. Back to Main Menu")
+        println("7. Exit")
+        print("Input: ".prependNewLine())
+        val userInput = readln()
+
+        when (userInput) {
+            "1" -> {
+                if (stack.isNotEmpty()) {
+                    peekStack(stack)
+                } else println("Stack is empty.")
+            }
+            "2" -> {
+                print("Input: ")
+                val input = readln()
+
+                if (input.isNotEmpty()) {
+                    stack.push(input)
+                    println("Successfully added $input to the stack.")
+                } else {
+                    println("Please enter a value.")
+                }
+            }
+            "3" -> {
+                if (stack.isNotEmpty()) {
+                    println()
+                    popStack(stack)
+                } else println("Stack is empty.")
+            }
+            "4" -> {
+                println()
+                printAllStack(stack)
+            }
+            "5" -> {
+                val input = readln()
+                if (input.isNotEmpty()) {
+                    searchStack(stack = stack, search = input)
+                } else println("Please enter a value.")
+
+            }
+            "6" -> mainMenu()
+            "7" -> break
+            else -> {
+                println("There's no such option.".prependNewLine())
+            }
+        }
+    } while (true)
+}
+
+fun stackInJavaDemo() {
 
     val stack = Stack<String>()
 
