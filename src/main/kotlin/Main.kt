@@ -5,14 +5,25 @@ import id.neotica.other.discreteMath
 import id.neotica.queue.queueDemo
 import id.neotica.stack.stackDemo
 import kotlinx.coroutines.*
+import LeetCode
+import id.neotica.other.LeetCodeKt
 
 fun main() {
+    val grok = Grokking()
+    val leetCode = LeetCode()
 //    Grokking().runBs1()
 //    Grokking().runSs1()
 //    println(Grokking().factorial(16))
 //    println(Grokking().quickSort(listOf(10, 5, 2, 3, 11, 4, 2)))
 //    println(Grokking().maps())
-    welcomeMessage()
+//    println(grok.graph())
+//    grok.dijkstra()
+    var intArr = intArrayOf(1,3,2,4,4)
+    leetCode.hasDuplicate(intArr)
+    println("bool: " + LeetCodeKt().hasDuplicate(intArr))
+    println("boolfunc: " + LeetCodeKt().hasDuplicateFunctional(intArr))
+//    leetCode.printLol()
+//    welcomeMessage()
 }
 
 fun welcomeMessage() {
